@@ -1,0 +1,8 @@
+name: WeirdDiscord
+main: io.github.bindglam.weirddiscord.WeirdDiscord
+version: 1.0
+api-version: 1.21
+softdepend:
+  - PlaceholderAPI
+libraries:
+  - net.dv8tion:JDA:5.0.2

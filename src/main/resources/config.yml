@@ -1,0 +1,10 @@
+token: "your-token"
+discord-address: "https://discord.gg/blahblah"
+verify-code-length: 4
+database:
+  type: mysql
+  address: "localhost:1234"
+  database: "minecraft"
+  user: "root"
+  password: ""
+  table_name: "weird_discord"
