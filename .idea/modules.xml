@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/WeirdDiscord.main.iml" filepath="$PROJECT_DIR$/.idea/modules/WeirdDiscord.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/io.github.bindglam.WeirdDiscord.main.iml" filepath="$PROJECT_DIR$/.idea/modules/io.github.bindglam.WeirdDiscord.main.iml" />
     </modules>
   </component>
 </project>

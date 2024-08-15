@@ -23,7 +23,13 @@ public class PlayerListener implements Listener {
         try {
             playerData = database.getPlayerDataFromDatabase(player.getUniqueId());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            //throw new RuntimeException(e);
+            try {
+                WeirdDiscord.DB.createConnection();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            return;
         }
 
         if(playerData.getId().isEmpty()){

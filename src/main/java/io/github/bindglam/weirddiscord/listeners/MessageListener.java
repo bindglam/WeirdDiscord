@@ -61,7 +61,17 @@ public class MessageListener extends ListenerAdapter {
                 WeirdDiscord.VERIFY_CODES.remove(code);
                 WeirdDiscord.INSTANCE.getLogger().info(user.getName() + "님이 계정 연결에 성공했습니다. ( " + offlinePlayer.getName() + " )");
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                //throw new RuntimeException(e);
+                event.getChannel().sendMessageEmbeds(new EmbedBuilder()
+                        .setTitle("오류가 발생했습니다!")
+                        .setColor(Color.RED)
+                        .setDescription("다시 시도해주세요...").build()).queue();
+
+                try {
+                    WeirdDiscord.DB.createConnection();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         }
     }

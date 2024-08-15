@@ -35,7 +35,13 @@ public class PlaceholderExpansion extends me.clip.placeholderapi.expansion.Place
         try {
             playerData = WeirdDiscord.DB.getPlayerDataFromDatabase(player.getUniqueId());
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            //throw new RuntimeException(e);
+            try {
+                WeirdDiscord.DB.createConnection();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            return null;
         }
 
         if(params.equalsIgnoreCase("user_id")){

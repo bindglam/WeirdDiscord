@@ -20,7 +20,7 @@ dependencies {
     implementation("net.dv8tion:JDA:5.0.2")
     implementation("dev.jorel:commandapi-bukkit-shade:9.5.1")
 
-    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.6")
 }
 
@@ -39,5 +39,5 @@ tasks.shadowJar {
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }

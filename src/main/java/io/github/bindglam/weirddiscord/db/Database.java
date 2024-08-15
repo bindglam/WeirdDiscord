@@ -15,6 +15,10 @@ public class Database {
             return connection;
         }
 
+        return createConnection();
+    }
+
+    public Connection createConnection() throws SQLException {
         String url = "jdbc:" + WeirdDiscord.INSTANCE.getConfig().getString("database.type") + "://" + WeirdDiscord.INSTANCE.getConfig().getString("database.address") + "/" + WeirdDiscord.INSTANCE.getConfig().getString("database.database");
         connection = DriverManager.getConnection(url, WeirdDiscord.INSTANCE.getConfig().getString("database.user"), WeirdDiscord.INSTANCE.getConfig().getString("database.password"));
         return connection;

@@ -41,7 +41,7 @@ public class WeirdDiscord extends JavaPlugin {
 
         INSTANCE = this;
 
-        if(getConfig().getString("token") != null) {
+        if(getConfig().getString("token") != null && !Objects.equals(getConfig().getString("token"), "")) {
             JDA = JDABuilder.createDefault(getConfig().getString("token"))
                     .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                     .build();
@@ -84,7 +84,13 @@ public class WeirdDiscord extends JavaPlugin {
                                     try {
                                         DB.deletePlayerData(DB.getPlayerDataFromDatabase(Objects.requireNonNull(target).getUniqueId()));
                                     } catch (SQLException e) {
-                                        throw new RuntimeException(e);
+                                        //throw new RuntimeException(e);
+                                        try {
+                                            WeirdDiscord.DB.createConnection();
+                                        } catch (SQLException ex) {
+                                            throw new RuntimeException(ex);
+                                        }
+                                        return;
                                     }
                                     player.sendMessage("성공적으로 초기화했습니다.");
                                 })
